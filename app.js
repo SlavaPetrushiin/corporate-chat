@@ -1,15 +1,21 @@
 const express = require('express');
+const socketio = require('socket.io')
+const http = require('http');
 const config = require('config');
 
 const PORT = config.get('port') || 5000;
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
-app.get('/', (req, res) => {
-   console.log('work')
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
 });
 
-
-app.listen(PORT, () => {
-    console.log(`App has been! ${PORT}`)
+server.listen(PORT, () => {
+    console.log(`Server has been ${PORT}!`)
 });
