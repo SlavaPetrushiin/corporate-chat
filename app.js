@@ -11,6 +11,12 @@ const io = socketio(server);
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    socket.on('SEND_MESSAGES', function(msg){
+        console.log(msg)
+        io.emit('chat message', msg);
+    });
+
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import classes from './MessageForm.module.css';
+import {socket} from '../../App'
+import {SEND_MESSAGES} from "../../store/actions/actionTypes";
 
 class MessageForm extends Component {
     state = {
@@ -19,8 +21,9 @@ class MessageForm extends Component {
     handleClick = (e) => {
         e.preventDefault();
 
-        alert(this.state.text);
+        const message = this.state.text;
 
+        socket.emit('SEND_MESSAGES', message);
         this.setState({
             text: ''
         });

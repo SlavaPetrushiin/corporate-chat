@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import io from 'socket.io-client';
 import Title from "./components/Title/Title";
 import MessageList from "./components/MessageList/MessageList";
 import {createUseStyles} from 'react-jss'
 import UsersList from "./components/UsersList/UsersList";
+import {useDispatch, useSelector} from "react-redux";
+import {messagesAC} from "./store/actions/messages";
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -25,31 +27,20 @@ const useStyles = createUseStyles({
     }
 });
 
-const socket = io('http://localhost:5000');
-socket.on('connect', function () {
-    socket.send('hi');
-
-    socket.on('message', function (msg) {
-        // my msg
-    });
-});
+export const socket = io('http://localhost:5000');
 
 
 function App() {
     const classes = useStyles();
+    const messages = useSelector(state => state.messages);
+    const dispatch = useDispatch();
 
-    const [messages, setMessages] = useState([
-        {
-            userId: 1,
-            name: 'Kola',
-            message: 'Привет!',
-        },
-        {
-            userId: 2,
-            name: 'Ivan1988',
-            message: 'Привет Коля!'
-        },
-    ]);
+    useEffect(() => {
+        socket.on('chat message', (mess) =>  {
+            dispatch(messagesAC(mess));
+            console.log(mess)
+        })
+    }, [socket])
 
     return (
         <div className={classes.wrapper}>
