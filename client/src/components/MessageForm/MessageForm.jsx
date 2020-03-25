@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './MessageForm.module.css';
 import {socket} from '../../App'
-import {SEND_MESSAGES} from "../../store/actions/actionTypes";
 
 class MessageForm extends Component {
     state = {

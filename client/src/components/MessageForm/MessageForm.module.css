@@ -1,8 +1,31 @@
 .blockForm{
-    background-color: brown;
     padding: 10px;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
 }
+
+.blockForm form{
+    padding: 3px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.blockForm form textarea {
+    border: 0;
+    padding: 10px;
+    width: 84%;
+    margin-right: .5%;
+    resize: none;
+}
+
+.blockForm form button {
+    width: 15%;
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+}
+

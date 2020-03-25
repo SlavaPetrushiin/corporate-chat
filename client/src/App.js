@@ -29,7 +29,6 @@ const useStyles = createUseStyles({
 
 export const socket = io('http://localhost:5000');
 
-
 function App() {
     const classes = useStyles();
     const messages = useSelector(state => state.messages);
@@ -38,9 +37,8 @@ function App() {
     useEffect(() => {
         socket.on('chat message', (mess) =>  {
             dispatch(messagesAC(mess));
-            console.log(mess)
-        })
-    }, [socket])
+        });
+    }, [socket]);
 
     return (
         <div className={classes.wrapper}>

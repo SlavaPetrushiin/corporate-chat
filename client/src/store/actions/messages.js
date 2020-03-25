@@ -1,9 +1,8 @@
 import {NEW_MESSAGES} from "./actionTypes";
 
-export const messagesAC = (messages) => {
-    debugger
+export const messagesAC = (message) => {
     return {
         type: NEW_MESSAGES,
-        messages
+        message
     }
 };

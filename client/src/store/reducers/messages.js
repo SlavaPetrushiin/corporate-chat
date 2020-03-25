@@ -16,9 +16,12 @@ const initialState = [
 export const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEW_MESSAGES :
-            debugger
             return [
-                ...state, action.messages
+                ...state, {
+                    userId: 5,
+                    name: "Slava",
+                    message: action.message
+                }
             ];
         default:
             return state
