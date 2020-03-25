@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import classes from './MessageList.module.css';
+import MessageForm from "../MessageForm/MessageForm";
 
 const Message = ({name, message}) => {
     return (
         <li>
             <strong>
                 {name}
+                &nbsp;
             </strong>
             {message}
         </li>
@@ -13,13 +16,12 @@ const Message = ({name, message}) => {
 
 class MessageList extends Component {
     renderMessages = () => {
-        return this.props.messages.map(message => <Message {...message}/>)
+        return this.props.messages.map(message => <Message {...message} key={message.id}/>)
     };
 
     render() {
-        debugger
         return (
-            <div>
+            <div className={classes.messagesList}>
                 <ul>
                     {
                         this.props.messages.length === 0
@@ -27,6 +29,7 @@ class MessageList extends Component {
                             : this.renderMessages()
                     }
                 </ul>
+                <MessageForm />
             </div>
         );
     }

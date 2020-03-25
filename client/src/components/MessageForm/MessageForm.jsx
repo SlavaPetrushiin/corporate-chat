@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classes from './MessageForm.module.css';
 
 class MessageForm extends Component {
     state = {
@@ -27,13 +28,17 @@ class MessageForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <div className={classes.blockForm}>
+                <form
+                    onSubmit={this.handleSubmit}
+                >
                 <textarea
                     value={this.state.text}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleClick}>Отправить</button>
-            </form>
+                    <button onClick={this.handleClick}>Отправить</button>
+                </form>
+            </div>
         );
     }
 }

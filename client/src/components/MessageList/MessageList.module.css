@@ -1,0 +1,20 @@
+.messagesList{
+    flex: 7 1 500px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+}
+
+.messagesList ul{
+    margin: 0 0 80px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.messagesList ul li{
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
