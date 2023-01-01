@@ -12,7 +12,7 @@
   "author": "Slava Petrushin <slava91petrushin@yandex.ru>",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.0",
+    "config": "^3.3.8",
     "express": "^4.17.1",
     "redux-thunk": "^2.3.0",
     "socket.io": "^2.3.0",
